@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Alanie</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ===== ENTRANCE SCREEN ===== -->
+  <div id="entrance" class="entrance-screen">
+    <div class="sparkle-bg" id="sparkleBg"></div>
+
+    <div class="entrance-content">
+      <p class="entrance-label">A little something for…</p>
+      <h1 class="entrance-name">Alanie Fatinie</h1>
+
+      <!-- CAKE ANIMATION -->
+      <div class="cake-wrapper" id="cakeWrapper">
+
+        <!-- Gummy blob that morphs into cake -->
+        <div class="gummy-blob" id="gummyBlob">
+          <div class="blob-inner">🎀</div>
+        </div>
+
+        <!-- Cake (hidden until morph done) -->
+        <div class="cake" id="cake">
+          <div class="cake-flames">
+            <div class="flame" style="--i:0"></div>
+            <div class="flame" style="--i:1"></div>
+            <div class="flame" style="--i:2"></div>
+          </div>
+          <div class="candles">
+            <div class="candle"></div>
+            <div class="candle"></div>
+            <div class="candle"></div>
+          </div>
+          <div class="cake-top">
+            <div class="icing-drip" style="--x:10%"></div>
+            <div class="icing-drip" style="--x:30%"></div>
+            <div class="icing-drip" style="--x:55%"></div>
+            <div class="icing-drip" style="--x:75%"></div>
+            <div class="icing-drip" style="--x:90%"></div>
+            <div class="cake-decoration">🌸</div>
+          </div>
+          <div class="cake-middle">
+            <div class="cake-stripe"></div>
+          </div>
+          <div class="cake-bottom"></div>
+          <div class="cake-plate"></div>
+        </div>
+      </div>
+
+      <p class="entrance-sub">Tekan Ribbon yang cute ni cepat!!!!!!!</p>
+
+      <button class="open-btn" id="openBtn" onclick="openCard()">
+        <span class="btn-icon">💌</span>
+        Birthday Card
+        <div class="btn-shine"></div>
+      </button>
+
+      <!-- Local music player (forced autoplay + loop) -->
+      <div class="spotify-wrap">
+        <audio id="bgMusic" autoplay loop preload="auto" playsinline style="width:100%; display:none;">
+          <source src="./Yiruma - River Flows in You (1 hour) - Zwitter Ions (Zwitterions).mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== WISH CARD ===== -->
+  <div id="wishCard" class="wish-card hidden">
+    <div class="wish-bg-deco"></div>
+    <div class="floating-petals" id="petals"></div>
+
+    <div class="card-inner">
+      <div class="card-header">
+        <div class="card-ribbon">🎀</div>
+        <h2 class="card-title">Happy Birthday</h2>
+        <h1 class="card-name">Alanie Fatinie Ramzan</h1>
+        <div class="card-stars">⭐🌟✨🌟⭐</div>
+      </div>
+
+      <div class="card-body">
+
+        <!-- ✏️ EDIT YOUR WISH HERE — change the text between the <p> tags -->
+        <div class="wish-text-block">
+          <p class="wish-line">Happy Birthday, Awakkkkkkkk! 🎉</p>
+          <p class="wish-line">On this very special day, I hope your heart is as full as it makes everyone around you feel, penat lelah awak yang awak lalui ye hanya awak dan tuhan je yang tau but awak dah buat yang terbaik its okay untuk rasa down sometimes but never give up! kuatkan semangat keep fighting for your dreams. You deserve all the happiness, laughter, and love that this world has to offer.</p>
+          <p class="wish-line">May this year bring you endless beautiful moments, new adventures, and dreams that come true one by one.</p>
+          <p class="wish-line">Thank you for being you... wonderful, kind, and so incredibly special girl. Wishing you a birthday as magical as you are!</p>
+          <p class="wish-line">Semoga keinginan awak akan tercapai oneday and I hope you know that I will always be here for you supporting you, you are very special to me and kite harap hubungan sebagai kawan kite takkan putus. </p>
+          <p class="wish-line">Last. You deserve the best, today, tomorrow and everyday. SEHAT2 SELALUUU YE PRETTYYY😊. Enjoy your day!!!!!!</p>
+          <p class="wish-signature">HAPPY BIRTHDAY Alanie HEHE ;)</p>
+        </div>
+
+        <div class="card-actions">
+          <button class="action-btn back-btn" onclick="goBack()">
+            <span>🎂</span> Back to Cake
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
