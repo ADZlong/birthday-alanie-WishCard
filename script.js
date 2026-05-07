@@ -1,9 +1,3 @@
-/* =============================================
-   Birthday Wish Card — script.js
-   Alanie Fatinie Ramzan
-   ============================================= */
-
-/* ---------- SPARKLE BACKGROUND ---------- */
 (function spawnSparkles() {
   const bg = document.getElementById('sparkleBg');
   const colors = ['#87CEEB','#FFB6C1','#ffffff','#FFD700','#b8e4f9','#ffe0e8'];
@@ -24,7 +18,6 @@
   }
 })();
 
-/* ---------- CAKE CLICK (morph animation) ---------- */
 let cakeClicked = false;
 
 document.getElementById('cakeWrapper').addEventListener('click', () => {
@@ -41,14 +34,12 @@ document.getElementById('cakeWrapper').addEventListener('click', () => {
     cake.classList.add('appear');
     cake.style.pointerEvents = 'auto';
 
-    // tiny bounce celebration
     setTimeout(() => {
       cake.style.animation = 'cakeAppear 0s forwards';
     }, 900);
   }, 600);
 });
 
-/* ---------- OPEN CARD ---------- */
 function openCard() {
   const entrance = document.getElementById('entrance');
   const wishCard = document.getElementById('wishCard');
@@ -63,7 +54,6 @@ function openCard() {
   }, 600);
 }
 
-/* ---------- BACK TO ENTRANCE ---------- */
 function goBack() {
   const entrance = document.getElementById('entrance');
   const wishCard = document.getElementById('wishCard');
@@ -73,7 +63,6 @@ function goBack() {
   entrance.classList.remove('fly-out');
 }
 
-/* ---------- FLOATING PETALS ---------- */
 function spawnPetals() {
   const container = document.getElementById('petals');
   container.innerHTML = '';
@@ -97,15 +86,14 @@ function spawnPetals() {
   }
 }
 
-/* ---------- BACKGROUND MUSIC AUTOPLAY ---------- */
 function setupMusicAutoplay() {
   const audio = document.getElementById('bgMusic');
   if (!audio) return;
 
+  audio.loop = true;
   audio.volume = 1;
 
   const tryPlay = () => {
-    // Start muted first (more likely to pass autoplay policies), then unmute.
     audio.muted = true;
     audio.play().then(() => {
       setTimeout(() => {
@@ -115,24 +103,25 @@ function setupMusicAutoplay() {
       document.removeEventListener('touchstart', tryPlay);
       document.removeEventListener('keydown', tryPlay);
     }).catch(() => {
-      // Ignore here; browser may require user gesture first.
     });
   };
 
-  // Try immediately on load.
   tryPlay();
   window.addEventListener('load', tryPlay, { once: true });
 
-  // Retry a few times in the first seconds to maximize no-click autoplay.
   const retryDelays = [500, 1200, 2200];
   retryDelays.forEach((delay) => {
     setTimeout(tryPlay, delay);
   });
 
-  // Fallback: first interaction starts the song if autoplay was blocked.
   document.addEventListener('click', tryPlay, { once: true });
   document.addEventListener('touchstart', tryPlay, { once: true });
   document.addEventListener('keydown', tryPlay, { once: true });
+
+  audio.addEventListener('ended', () => {
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+  });
 }
 
 document.addEventListener('DOMContentLoaded', setupMusicAutoplay);
