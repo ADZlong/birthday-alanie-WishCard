@@ -1,4 +1,3 @@
-# birthday-alanie-WishCard
 # 🎂 Happy Birthday Alanie Fatinie Ramzan
 
 A beautiful, animated birthday wish card website for Alanie Fatinie Ramzan — complete with a gummy-blob-to-cake morphing entrance, floating petals, confetti, and a live wish card editor.
